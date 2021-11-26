@@ -1,0 +1,177 @@
+selecting sname from sailors1 table and group by sname.
+
+SQL> select sname from sailors1 group by sname;
+
+SNAME
+-------------
+raji
+bala
+keerthana
+john
+deepthi
+salman
+sandeep
+
+7 rows selected.
+
+selecting age from the sailors1 table group by age.
+
+
+SQL> select age from sailors1 group by age;
+
+       AGE
+----------
+        30
+        22
+        34
+        28
+        26
+        32
+        27
+
+7 rows selected.
+
+selecting sname and age from the sailors1 table order by sid.
+
+
+SQL> select sname,age from sailors order by sid;
+
+SNAME             AGE
+---------- ----------
+keer               30
+sandy              27
+bala               28
+raji               32
+praneeth           22
+venki              26
+salman             34
+kavya              31
+pavi               27
+shiny              29
+
+10 rows selected.
+
+
+selecting all attributes from reserves1 table order by sid and bid in descending order.
+
+
+
+SQL> select * from reserves1 order by sid,bid desc;
+
+       SID        BID DATES
+---------- ---------- ---------
+        22        103 25-JAN-10
+        22        101 26-JUN-10
+        22        101 30-JUN-02
+        22        101 26-OCT-02
+        34        105 21-APR-40
+        34        105 14-FEB-04
+        64        108 16-SEP-56
+
+7 rows selected.
+
+selecting all attributes from boats1 table order by bis in descending order.
+
+
+SQL> select * from boats1 order by bid desc;
+
+       BID BNAME              COLOUR
+---------- ------------------ ----------
+        14 jammu              grey
+        13 kashmir            black
+        12 mysore             yellow
+        11 banglore           blue
+
+
+selecting rating and sid count from the sailors1 table where their age is above 20 grouping with rating.
+
+
+SQL> select rating,count(sid) from sailors1 where age>20 group by rating;
+
+    RATING COUNT(SID)
+---------- ----------
+         6          1
+         8          2
+         7          2
+         9          2
+
+selecting the bid and sid count from the reserves1 table grouping with bid.
+
+
+SQL> select bid,count(sid) from reserves1 group by bid;
+
+       BID COUNT(SID)
+---------- ----------
+       108          1
+       101          3
+       105          2
+       103          1
+
+selecting the bid and sid count from the reserves1 table grouping by bid and having count of sid is more than 2.
+
+
+SQL> select bid,count(sid) from reserves1 group by bid having count(sid)>2;
+
+       BID COUNT(SID)
+---------- ----------
+       101          3
+
+selecting the rating and the average of age from the sailors1 table group by rating and order by the rating in descending order.
+
+
+SQL> select rating,avg(age) from sailors1 group by rating order by rating desc;
+
+    RATING   AVG(AGE)
+---------- ----------
+         9         24
+         8         30
+         7       28.5
+         6         34
+
+selecting the rating and the max of age from the sailors1 table group by rating and order by the rating in descending order.
+
+
+
+SQL> select rating,max(age) from sailors1 group by rating order by rating desc;
+
+    RATING   MAX(AGE)
+---------- ----------
+         9         26
+         8         32
+         7         30
+         6         34
+
+selecting the sname and sid from the sailors1 table where rating is equal or greater than 9.
+
+
+SQL> select sname,sid from sailors1 where rating>=9;
+
+SNAME                SID
+------------- ----------
+bala                  58
+salman                64
+
+selecting the rating and the minimum of age from the sailors1 table group by rating and order by the rating in descending order.
+
+
+
+SQL> select rating,min(age) from sailors1 group by rating order by rating desc;
+
+    RATING   MIN(AGE)
+---------- ----------
+         9         22
+         8         28
+         7         27
+         6         34
+
+selecting the sid and distinct bid from the reserves1 table grouping by sid.
+
+
+
+SQL> select sid,count(distinct bid) from reserves1 group by sid;
+
+       SID COUNT(DISTINCTBID)
+---------- ------------------
+        22                  2
+        34                  1
+        64                  1

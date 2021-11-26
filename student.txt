@@ -1,0 +1,105 @@
+create table student(id int,name varchar(10),department varchar(5),city char(18),age int,year int,primary key(id));
+
+Table created.
+
+SQL> select * from student;
+
+no rows selected
+
+SQL> insert into student values(12,'keer','cse','tpt',13,2);
+
+1 row created.
+
+SQL> insert into student values(13,'sandy','ece','pdrl',14,2);
+
+1 row created.
+
+SQL> insert into student values(14,'bala','cse','tpt',13,2);
+
+1 row created.
+
+SQL> insert into student values(15,'satwi','csse','pdrl',15,3);
+
+1 row created.
+
+SQL> insert into student values(16,'vyshu','eee','vzg',14,3);
+
+1 row created.
+
+SQL> insert into student values(17,'chaitu','ece','vzg',14,3);
+
+1 row created.
+
+SQL> insert into student values(18,'dippa','csse','pdrl',15,3);
+
+
+SQL> insert into student values(19,'pavi','cse','nrt',13,2);
+
+1 row created.
+
+SQL> insert into student values(20,'harika','cse','nrt',15,2);
+
+1 row created
+insert into student values(21,'karthik','cse','tpt',14,2);
+
+1 row created.
+
+SQL> select * from student;
+
+        ID NAME       DEPAR CITY                      AGE       YEAR
+---------- ---------- ----- ------------------ ---------- ----------
+        12 keer       cse   tpt                        13          2
+        13 sandy      ece   pdrl                       14          2
+        14 bala       cse   tpt                        13          2
+        15 satwi      csse  pdrl                       15          3
+        16 vyshu      eee   vzg                        14          3
+        17 chaitu     ece   vzg                        14          3
+        18 dippa      csse  pdrl                       15          3
+        19 pavi       cse   nrt                        13          2
+        20 harika     cse   nrt                        15          2
+        21 karthik    cse   tpt                        14          2
+
+
+alter table student add gender varchar(10);
+
+Table altered.
+
+
+alter table student drop column year;
+
+Table altered.
+
+SQL> select * from student;
+
+        ID NAME       DEPAR CITY                      AGE GENDER
+---------- ---------- ----- ------------------ ---------- ----------
+        12 keer       cse   tpt                        13
+        13 sandy      ece   pdrl                       14
+        14 bala       cse   tpt                        13
+        15 satwi      csse  pdrl                       15
+        16 vyshu      eee   vzg                        14
+        17 chaitu     ece   vzg                        14
+        18 dippa      csse  pdrl                       15
+        19 pavi       cse   nrt                        13
+        20 harika     cse   nrt                        15
+        21 karthik    cse   tpt                        14
+
+10 rows selected.
+
+
+SQL> select * from student;
+
+        ID NAME       DEPAR CITY                      AGE       YEAR GENDER
+---------- ---------- ----- ------------------ ---------- ---------- ----------
+        12 keer       cse   tpt                        13          2
+        13 sandy      ece   pdrl                       14          2
+        14 bala       cse   tpt                        13          2
+        15 satwi      csse  pdrl                       15          3
+        16 vyshu      eee   vzg                        14          3
+        17 chaitu     ece   vzg                        14          3
+        18 dippa      csse  pdrl                       15          3
+        19 pavi       cse   nrt                        13          2
+        20 harika     cse   nrt                        15          2
+        21 karthik    cse   tpt                        14          2
+
+10 rows selected.

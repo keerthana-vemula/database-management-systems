@@ -1,0 +1,218 @@
+creating sailors1 table with some attributes.
+
+
+SQL> create table sailors1(sid int primary key,sname varchar(13),rating int,age int);
+
+Table created.
+
+creating boats1 table with some attributes.
+
+
+SQL> create table boats1(bid int,bname varchar(15),colour varchar(10)
+
+Table created.
+
+creating reserves table with attributes.
+
+
+SQL> create table reserves(sid int,bid int,"reserved date" date);
+
+Table created.
+
+altering the sailors1 table by changing sname as notnull.
+
+
+SQL> alter table sailors1 modify sname varchar(13) not null;
+
+Table altered.
+
+altering the sailors1 table by checking whether the age is above 18 and raing is below 10.
+
+SQL> alter table sailors1 add check(rating<=10 and age>=18);
+
+Table altered.
+
+altering the boats1 table by taking bid as a primary key.
+
+SQL> alter table boats1 add primary key(bid);
+
+Table altered.
+
+altering the boats1 table by modifying bname as unique and notnull.
+
+
+SQL> alter table boats1 modify bname varchar(18) unique not null;
+
+Table altered.
+
+
+describing sailors1 table.
+
+
+SQL> desc sailors1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- -----------------
+
+ SID                                       NOT NULL NUMBER(38)
+ SNAME                                     NOT NULL VARCHAR2(13)
+ RATING                                             NUMBER(2)
+ AGE                                                NUMBER(38)
+
+describing boats1 table.
+
+
+SQL> desc boats1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- -----------------
+
+ BID                                       NOT NULL NUMBER(38)
+ BNAME                                     NOT NULL VARCHAR2(18)
+ COLOUR                                             VARCHAR2(10)
+
+Add foreign key constraint with name FK_SID to sid attribute of reserves table which references sid attribute of sailors table.
+
+SQL> alter table reserves add constraint fk_sid foreign key(sid) references sailors1(sid);
+
+Table altered.
+
+Add foreign key constraint with name FK_BID to bid attribute of reserves table which references bid attribute of boats table.
+
+SQL> alter table reserves add constraint fk_bid foreign key(bid) references boats1(bid);
+
+Table altered.
+
+inserting the sailors1 values to the table.
+
+
+SQL> insert into sailors1 values(22,'keerthana',7,30);
+
+1 row created.
+
+SQL> insert into sailors1 values(29,'sandeep',7,27);
+
+1 row created.
+
+SQL> insert into sailors1 values(31,'deepthi',8,28);
+
+1 row created.
+
+SQL> insert into sailors1 values(32,'raji',8,32);
+
+1 row created.
+
+SQL> insert into sailors1 values(58,'bala',9,22);
+
+1 row created.
+
+SQL> insert into sailors1 values(64,'salman',9,26);
+
+1 row created.
+
+SQL> insert into sailors1 values(71,'john',6,34);
+
+1 row created.
+
+
+selecting all the values in the sailors1 table.
+
+SQL> select * from sailors1;
+
+       SID SNAME             RATING        AGE
+---------- ------------- ---------- ----------
+        22 keerthana              7         30
+        29 sandeep                7         27
+        31 deepthi                8         28
+        32 raji                   8         32
+        58 bala                   9         22
+        64 salman                 9         26
+        71 john                   6         34
+
+7 rows selected.
+
+
+inserting the boats1 values to the table.
+
+
+
+SQL> insert into boats1 values(11,'banglore','blue');
+
+1 row created.
+
+SQL> insert into boats1 values(12,'mysore','yellow');
+
+1 row created.
+
+SQL> insert into boats1 values(13,'kashmir','black');
+
+1 row created.
+
+SQL> insert into boats1 values(14,'jammu','grey');
+
+1 row created.
+
+
+selecting all the values in the boats1 table.
+
+
+SQL> select * from boats1;
+
+       BID BNAME              COLOUR
+---------- ------------------ ---------
+        11 banglore           blue
+        12 mysore             yellow
+        13 kashmir            black
+        14 jammu              grey
+
+
+creating the reserves1 table with some attributes.
+
+
+SQL> create table reserves1(sid int,bid int,dates date);
+
+Table created.
+
+
+inserting the reserves1 values to the table.
+
+
+SQL> insert into reserves1 values(22,101,to_date('26-oct-2002'));
+
+1 row created.
+
+SQL> insert into reserves1 values(22,101,to_date('26-june-2010'));
+
+1 row created.
+
+SQL> insert into reserves1 values(22,101,to_date('30-june-2002'));
+
+1 row created.
+
+SQL> insert into reserves1 values(22,103,to_date('25-jan-2010'));
+
+1 row created.
+
+SQL> insert into reserves1 values(34,105,to_date('21-apr-2040'));
+
+1 row created.
+
+SQL> insert into reserves1 values(34,105,to_date('14-feb-2004'));
+
+1 row created.
+
+SQL> insert into reserves1 values(64,108,to_date('16-sep-2056'));
+
+1 row created.
+
+selecting all the values in the reserves1 table.
+
+SQL> select * from reserves1;
+
+       SID        BID DATES
+---------- ---------- ---------
+        22        101 26-OCT-02
+        22        101 26-JUN-10
+        22        101 30-JUN-02
+        22        103 25-JAN-10
+        34        105 21-APR-40
+        34        105 14-FEB-04
+        64        108 16-SEP-56

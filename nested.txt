@@ -1,0 +1,157 @@
+finding the names of sailors who reserves boat 103.
+
+
+SQL> select s.sname from sailors s where s.sid in(select r.sid from reserves r where r.bid=103);
+
+SNAME
+----------
+Bunny
+keer
+babloo
+
+finding the names of sailors who didn't reserve boat 103.
+
+
+SQL> select s.sname from sailors s where s.sid not in(select r.sid from reserves r where r.bid=103);
+
+SNAME
+----------
+hemu
+gautham
+santhu
+Sai
+Karthik
+Deepthi
+suppu
+
+7 rows selected.
+
+
+find the snames where their id is 103.
+
+
+SQL> select s.sname from sailors s where exists(select * from reserves r where r.bid=101 and s.sid=r.sid);
+
+SNAME
+----------
+Bunny
+santhu
+
+finding the names of sailors who didn't have sid 22
+
+
+SQL> select s.sname from sailors s where s.sid not in(select r.sid from reserves r where r.sid=22);
+
+SNAME
+----------
+hemu
+gautham
+santhu
+Sai
+Karthik
+Deepthi
+babloo
+keer
+suppu
+
+find the name of youngest sailor for each rating level.
+
+
+SQL> select s.sname,s.age from sailors s where s.age<=all(select age from sailors);
+
+SNAME             AGE
+---------- ----------
+Sai                22
+
+
+find the names of the sailors who reserve red boat.
+
+SQL> select s.sname from sailors s where s.sid in(select r.sid from reserves r 
+where r.bid in(select b.bid from boats b where b.color='red'));
+
+SNAME
+----------
+Bunny
+keer
+santhu
+
+find the names of sailors who didn't reserve red boat.
+
+SQL> select s.sname from sailors s where s.sid not in(select r.sid from reserves r 
+where r.bid in(select b.bid from boats b where b.color='red'));
+
+SNAME
+----------
+Deepthi
+Karthik
+Sai
+hemu
+babloo
+gautham
+suppu
+
+7 rows selected.
+
+select all the attributes from sailors table and age from sailors table who has rating above 7.
+
+SQL> select * from sailors where age in(select age from sailors where rating=7)
+
+
+       SID SNAME          RATING        AGE
+---------- ---------- ---------- ----------
+        22 Bunny               7         30
+        85 gautham             9         27
+        29 Deepthi             7         27
+        95 suppu               7         29
+
+
+find the name of sailors who have not reserved both red and green boat.
+
+SQL> select s.sname from sailors s where s.sid in(select r.sid from reserves r where
+ r.bid not in(select b.bid from boats b where b.color='red' and b.color='green'));
+
+SNAME
+----------
+Bunny
+keer
+santhu
+babloo
+
+
+find the name of sailors who have not reserved all the boats
+
+
+SQL> select s.sname from sailors s where s.sid in(select r.sid from reserves r where
+ r.bid not in(select b.bid from boats b where b.color='red' and b.color='green' and b.color='blue'));
+
+SNAME
+----------
+Bunny
+keer
+santhu
+babloo
+
+find the name of sailors who have reserved red boat.
+
+SQL> select s.sname from sailors s where s.sid in(select r.sid from reserves r where
+ r.bid in(select b.bid from boats b where b.color='red'));
+
+SNAME
+----------
+Bunny
+keer
+santhu
+
+
+
+
+
+
+
+
+
+
+
+
+
+

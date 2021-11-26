@@ -1,0 +1,363 @@
+insert into std2 values(12,'keer','cse','tpt',13,2);
+
+1 row created.
+
+SQL> insert into std2 values(13,'sandy','ece','pdrl',14,2);
+
+1 row created.
+
+SQL> insert into std2 values(14,'bala','cse','tpt',13,2);
+
+1 row created.
+
+SQL> insert into std2 values(15,'kavya','csse','pdrl',15,3);
+
+1 row created.
+
+SQL>  insert into std2 values(16,'vyshu','eee','vzg',14,3);
+
+1 row created.
+
+SQL> insert into std2 values(17,'chaitu','ece','vzg',14,3);
+
+1 row created.
+
+SQL>  insert into std2 values(18,'dippa','csse','pdrl',15,3);
+
+1 row created.
+
+
+SQL>  insert into std2 values(19,'pavi','cse','nrt',13,2);
+
+1 row created.
+
+SQL> insert into std2 values(20,'harika','cse','nrt',15,2);
+
+1 row created.
+
+SQL> insert into std2 values(21,'karthik','cse','tpt',14,2);
+
+1 row created.
+
+
+
+delete from std2 where department='cse';
+
+5 rows deleted.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE       YEAR
+---------- --------------- ----- ---------- ---------- ----------
+        13 sandy           ece   pdrl               14          2
+        15 satwi           csse  pdrl               15          3
+        16 vyshu           eee   vzg                14          3
+        17 chaitu          ece   vzg                14          3
+        18 dippa           csse  pdrl               15          3
+
+ update std2 set department='cse' where id=13;
+
+1 row updated.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE       YEAR
+---------- --------------- ----- ---------- ---------- ----------
+        13 sandy           cse   pdrl               14          2
+        15 satwi           csse  pdrl               15          3
+        16 vyshu           eee   vzg                14          3
+        17 chaitu          ece   vzg                14          3
+        18 dippa           csse  pdrl               15          3
+
+ delete from std2 where department='csse';
+
+2 rows deleted.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE       YEAR
+---------- --------------- ----- ---------- ---------- ----------
+        13 sandy           cse   pdrl               14          2
+        16 vyshu           eee   vzg                14          3
+        17 chaitu          ece   vzg                14          3
+ insert into std2 values(29,'dikki','cse','tpt',18,2);
+
+1 row created.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE       YEAR
+---------- --------------- ----- ---------- ---------- ----------
+        13 sandy           cse   pdrl               14          2
+        16 vyshu           eee   vzg                14          3
+        17 chaitu          ece   vzg                14          3
+        29 dikki           cse   tpt                18          2
+ insert into std2 values(29,'dikki','cse','tpt',18,2);
+
+1 row created.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE       YEAR
+---------- --------------- ----- ---------- ---------- ----------
+        13 sandy           cse   pdrl               14          2
+        16 vyshu           eee   vzg                14          3
+        17 chaitu          ece   vzg                14          3
+        29 dikki           cse   tpt                18          2
+
+ select name,department from std2 where age=14;
+
+NAME            DEPAR
+--------------- -----
+sandy           cse
+vyshu           eee
+chaitu          ece
+
+
+update std2 set department='csse' where id=16;
+
+1 row updated.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE       YEAR
+---------- --------------- ----- ---------- ---------- ----------
+        13 sandy           cse   pdrl               14          2
+        16 vyshu           csse  vzg                14          3
+        17 chaitu          ece   vzg                14          3
+        29 dikki           cse   tpt                18          2
+
+update std2 set department='eee' where id=17;
+
+1 row updated.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE       YEAR
+---------- --------------- ----- ---------- ---------- ----------
+        13 sandy           cse   pdrl               14          2
+        16 vyshu           csse  vzg                14          3
+        17 chaitu          eee   vzg                14          3
+        29 dikki           cse   tpt                18          2
+
+update std2 set department='csse' where id=29;
+
+1 row updated.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE       YEAR
+---------- --------------- ----- ---------- ---------- ----------
+        13 sandy           cse   pdrl               14          2
+        16 vyshu           csse  vzg                14          3
+        17 chaitu          eee   vzg                14          3
+        29 dikki           csse  tpt                18          2
+
+insert into std2 values(30,'hari','cse','tpt',18,2);
+
+1 row created.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE       YEAR
+---------- --------------- ----- ---------- ---------- ----------
+        13 sandy           cse   pdrl               14          2
+        16 vyshu           csse  vzg                14          3
+        17 chaitu          eee   vzg                14          3
+        29 dikki           csse  tpt                18          2
+        30 hari            cse   tpt                18          2
+
+SQL> insert into std2 values(31,'deep','cse','tpt',18,2);
+
+1 row created.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE       YEAR
+---------- --------------- ----- ---------- ---------- ----------
+        13 sandy           cse   pdrl               14          2
+        16 vyshu           csse  vzg                14          3
+        17 chaitu          eee   vzg                14          3
+        29 dikki           csse  tpt                18          2
+        30 hari            cse   tpt                18          2
+        31 deep            cse   tpt                18          2
+
+6 rows selected.
+
+alter table std2 drop column year;
+
+Table altered.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE
+---------- --------------- ----- ---------- ----------
+        13 sandy           cse   pdrl               14
+        16 vyshu           csse  vzg                14
+        17 chaitu          eee   vzg                14
+        29 dikki           csse  tpt                18
+        30 hari            cse   tpt                18
+        31 deep            cse   tpt                18
+
+ alter table std2 add gender varchar(15);
+
+Table altered.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE GENDER
+---------- --------------- ----- ---------- ---------- ---------------
+        13 sandy           cse   pdrl               14
+        16 vyshu           csse  vzg                14
+        17 chaitu          eee   vzg                14
+        29 dikki           csse  tpt                18
+        30 hari            cse   tpt                18
+        31 deep            cse   tpt                18
+
+update std2 set gender='m' where id=13;
+
+1 row updated.
+
+SQL> update std2 set gender='f' where id=16;
+
+1 row updated.
+
+SQL> update std2 set gender='f' where id=17;
+
+1 row updated.
+
+SQL> update std2 set gender='m' where id=29;
+
+1 row updated.
+
+SQL> update std2 set gender='m' where id=30;
+
+1 row updated.
+
+SQL> update std2 set gender='f' where id=31;
+
+1 row updated.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE GENDER
+---------- --------------- ----- ---------- ---------- ---------------
+        13 sandy           cse   pdrl               14 m
+        16 vyshu           csse  vzg                14 f
+        17 chaitu          eee   vzg                14 f
+        29 dikki           csse  tpt                18 m
+        30 hari            cse   tpt                18 m
+        31 deep            cse   tpt                18 f
+
+
+select city from std2 where department='csse';
+
+CITY
+----------
+vzg
+tpt
+select city from std2 where age>=18;
+
+CITY
+----------
+tpt
+tpt
+tpt
+
+delete from std2 where department='csse' and age=18;
+
+1 row deleted.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE GENDER
+---------- --------------- ----- ---------- ---------- ---------------
+        13 sandy           cse   pdrl               14 m
+        16 vyshu           csse  vzg                14 f
+        17 chaitu          eee   vzg                14 f
+        30 hari            cse   tpt                18 m
+        31 deep            cse   tpt                18 f
+
+insert into std2 values(33,'raji','cse','tpt',26,2);
+
+1 row created.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE GENDER
+---------- --------------- ----- ---------- ---------- ---------------
+        33 raji            cse   tpt                26 2
+        13 sandy           cse   pdrl               14 m
+        16 vyshu           csse  vzg                14 f
+        17 chaitu          eee   vzg                14 f
+        30 hari            cse   tpt                18 m
+        31 deep            cse   tpt                18 f
+
+6 rows selected.
+
+SQL> insert into std2 values(73,'prani','ece','tpt',46,2);
+
+1 row created.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE GENDER
+---------- --------------- ----- ---------- ---------- ---------------
+        33 raji            cse   tpt                26 2
+        13 sandy           cse   pdrl               14 m
+        73 prani           ece   tpt                46 2
+        16 vyshu           csse  vzg                14 f
+        17 chaitu          eee   vzg                14 f
+        30 hari            cse   tpt                18 m
+        31 deep            cse   tpt                18 f
+delete from std2 where department='csse' and city='vzg';
+
+1 row deleted.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE GENDER
+---------- --------------- ----- ---------- ---------- ---------------
+        33 raji            cse   tpt                26 2
+        13 sandy           cse   pdrl               14 m
+        73 prani           ece   tpt                46 2
+        17 chaitu          eee   vzg                14 f
+        30 hari            cse   tpt                18 m
+        31 deep            cse   tpt                18 f
+
+ update std2 set city='tpt' where id=13;
+
+1 row updated.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE GENDER
+---------- --------------- ----- ---------- ---------- ---------------
+        33 raji            cse   tpt                26 2
+        13 sandy           cse   tpt                14 m
+        73 prani           ece   tpt                46 2
+        17 chaitu          eee   vzg                14 f
+        30 hari            cse   tpt                18 m
+        31 deep            cse   tpt                18 f
+
+
+ insert into std2 values(19,'bala','ece','tpt',46,2);
+
+1 row created.
+
+SQL> insert into std2 values(21,'keer','ece','tpt',23,2);
+
+1 row created.
+
+SQL> select * from std2;
+
+        ID NAME            DEPAR CITY              AGE GENDER
+---------- --------------- ----- ---------- ---------- ---------------
+        33 raji            cse   tpt                26 2
+        13 sandy           cse   tpt                14 m
+        73 prani           ece   tpt                46 2
+        19 bala            ece   tpt                46 2
+        17 chaitu          eee   vzg                14 f
+        21 keer            ece   tpt                23 2
+        30 hari            cse   tpt                18 m
+        31 deep            cse   tpt                18 f

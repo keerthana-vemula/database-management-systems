@@ -1,0 +1,263 @@
+selecting the system date from dual.
+
+
+SQL> select sysdate from dual;
+
+SYSDATE
+---------
+10-APR-21
+
+selecting system date by adding two from dual.
+
+
+SQL> select sysdate+2 from dual;
+
+SYSDATE+2
+---------
+12-APR-21
+
+selecting system date by substracting two from dual.
+
+
+SQL> select sysdate-2 from dual;
+
+SYSDATE-2
+---------
+08-APR-21
+
+
+selecting system date by adding five from dual.
+
+
+SQL> select sysdate+5 from dual;
+
+SYSDATE+5
+---------
+15-APR-21
+
+
+selecting the current time from dual.
+
+
+SQL> select CURRENT_TIMEstamp from dual;
+
+CURRENT_TIMESTAMP
+---------------------------------------------------------------------------
+10-APR-21 09.25.46.560000 AM +05:30
+
+selecting the current time from std2.
+
+
+SQL> select CURRENT_TIMEstamp from std2;
+
+CURRENT_TIMESTAMP
+---------------------------------------------------------------------------
+10-APR-21 09.26.43.397000 AM +05:30
+10-APR-21 09.26.43.397000 AM +05:30
+10-APR-21 09.26.43.397000 AM +05:30
+10-APR-21 09.26.43.397000 AM +05:30
+10-APR-21 09.26.43.397000 AM +05:30
+10-APR-21 09.26.43.397000 AM +05:30
+10-APR-21 09.26.43.397000 AM +05:30
+10-APR-21 09.26.43.397000 AM +05:30
+
+8 rows selected.
+
+
+selcting the months between may and july from dual.
+
+
+SQL> select months_between('10-may-2020','01-july-2020') from dual;
+
+MONTHS_BETWEEN('10-MAY-2020','01-JULY-2020')
+--------------------------------------------
+                                  -1.7096774
+
+
+selcting the squareroot of 25 from dual.
+
+
+SQL> select SQRT(25) from dual;
+
+  SQRT(25)
+----------
+         5
+
+selecting the round off number of 4.231 from dual.
+
+
+SQL> select round(4.231) from dual;
+
+ROUND(4.231)
+------------
+           4
+
+selecting the ceil number of 4.321 from dual.
+
+
+SQL> select ceil(4.321) from dual;
+
+CEIL(4.321)
+-----------
+          5
+
+selecting the floor number of 3.1 from dual.
+
+
+SQL> select floor(3.1) from dual;
+
+FLOOR(3.1)
+----------
+         3
+
+selecting the mod of 3,2 from dual.
+
+
+SQL> select mod(3,2) from dual;
+
+  MOD(3,2)
+----------
+         1
+
+creating the student1 values with some attributes.
+
+
+SQL> create table student1(id int,name varchar(15),last varchar(12),department v
+archar(12),primary key(id));
+
+Table created.
+
+
+inserting the student1 values to the table.
+
+
+SQL> insert into student1 values(19,'keer','vemula','cse');
+
+1 row created.
+
+SQL> insert into student1 values(20,'sandy','challa','csse');
+
+1 row created.
+
+SQL> insert into student1 values(21,'pavi','kota','ece');
+
+1 row created.
+
+SQL> insert into student1 values(22,'salman','shaik','csse');
+
+1 row created.
+
+
+display the name in uppercase letters where id above 20.
+
+
+SQL> select upper(name) from student1 where id>20;
+
+UPPER(NAME)
+---------------
+PAVI
+SALMAN
+
+display the last of student1 table in lower case letters where id is less than 20. 
+
+
+SQL> select lower(last) from student1 where id<20;
+
+LOWER(LAST)
+------------
+vemula
+
+displaying the name in uppercase and department in lower case from the student1 table where id above 22.
+
+SQL> select upper(name),lower(department) from student1 where id<22;
+
+UPPER(NAME)     LOWER(DEPART
+--------------- ------------
+KEER            cse
+SANDY           csse
+PAVI            ece
+
+
+concating the last and name from the student1 table where id above 23.
+
+
+SQL> select concat(name,last) from student1 where id<23;
+
+CONCAT(NAME,LAST)
+---------------------------
+keervemula
+sandychalla
+pavikota
+salmanshaik
+
+displaying the length of the name from student1 table.
+
+
+SQL> select length(name) from student1;
+
+LENGTH(NAME)
+------------
+           4
+           5
+           4
+           6
+
+displaying the length of department from the student1 table.
+
+
+SQL> select length(department) from student1;
+
+LENGTH(DEPARTMENT)
+------------------
+                 3
+                 4
+                 3
+                 4
+
+
+display 1 if the student1 name starts with letter s or else 0.
+
+SQL> select instr(name,'s') from student1;
+
+INSTR(NAME,'S')
+---------------
+              0
+              1
+              0
+              1
+
+display the first three letters from the name of student.  
+
+SQL> select substr(name,1,3) from student1;
+
+SUB
+---
+kee
+san
+pav
+sal
+
+display the first three letters from the name of student if id is lessthan 23.
+
+
+SQL> select substr(name,1,3) from student1 where id<23;
+
+SUB
+---
+kee
+san
+pav
+sal
+
+display 1 if the student1 name starts with letter k or else 0.
+
+
+SQL> select instr(name,'k') from student1 where id<23;
+
+INSTR(NAME,'K')
+---------------
+              1
+              0
+              0
+              0
+

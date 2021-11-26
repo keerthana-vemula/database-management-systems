@@ -1,0 +1,249 @@
+
+SQL> create table staff(
+  2  (id int(3),
+  3    2  name varchar(15),
+  4    3  department varchar(6),
+  5    4  salary int(7),
+  6    5  city char(10),
+  7    6  experience int(5),
+  8    7  age int(3),
+  9    8  primary key(id)
+ 10
+SQL>
+SQL> create table staff(id int,name varchar(15),department varchar(6),salary int,city char(10),experience int,age int,primary key(id));
+
+Table created.
+
+SQL> insert into staff values(15,'keer','cse',95000,'tirupathi',2,40);
+
+1 row created.
+
+SQL> insert into staff values(16,'sandy','cse',78000,'tirupathi',3,45);
+
+1 row created.
+
+SQL> insert into staff values(17,'raji','csse',80000,'guntur',3,55);
+
+1 row created.
+
+SQL> insert into staff values(18,'chandu','csse',90000,'guntur',2,44);
+
+1 row created.
+
+SQL> insert into staff values(19,'fariha','cse',70000,'guntur',3,43);
+
+1 row created.
+
+SQL> insert into staff values(20,'suppi','eee',75000,'guntur',2,45);
+
+1 row created.
+
+SQL> insert into staff values(21,'jayitha','ece',73000,'guntur',2,35);
+
+1 row created.
+
+SQL> insert into staff values(22,'shiny','eee',75000,'bhima',2,35);
+
+1 row created.
+
+SQL> insert into staff values(23,'venki','eee',80000,'vijayaw',2,40);
+
+1 row created.
+
+SQL> insert into staff values(24,'dippa','eee',90000,'vizag',2,50);
+
+1 row created.
+
+SQL> insert into staff values(25,'chaitu','eee',85000,'guntur',2,55);
+
+1 row created.
+
+SQL> insert into staff values(26,'vyshu','cse',75000,'vizag',8,55);
+
+1 row created.
+
+SQL> insert into staff values(27,'sai','csse',78000,'vizag',2,40);
+
+1 row created.
+
+SQL> insert into staff values(28,'sam','cse',80000,'vizag',3,30);
+
+1 row created.
+
+SQL> insert into staff values(29,'varun','cse',85000,'vizag',2,40);
+
+1 row created.
+
+SQL> SELECT * from staff;
+
+        ID NAME            DEPART     SALARY CITY       EXPERIENCE        AGE
+---------- --------------- ------ ---------- ---------- ---------- ----------
+        15 keer            cse         95000 tirupathi           2         40
+        16 sandy           cse         78000 tirupathi           3         45
+        17 raji            csse        80000 guntur              3         55
+        18 chandu          csse        90000 guntur              2         44
+        19 fariha          cse         70000 guntur              3         43
+        20 suppi           eee         75000 guntur              2         45
+        21 jayitha         ece         73000 guntur              2         35
+        22 shiny           eee         75000 bhima               2         35
+        23 venki           eee         80000 vijayaw             2         40
+        24 dippa           eee         90000 vizag               2         50
+        25 chaitu          eee         85000 guntur              2         55
+
+        ID NAME            DEPART     SALARY CITY       EXPERIENCE        AGE
+---------- --------------- ------ ---------- ---------- ---------- ----------
+        26 vyshu           cse         75000 vizag               8         55
+        27 sai             csse        78000 vizag               2         40
+        28 sam             cse         80000 vizag               3         30
+        29 varun           cse         85000 vizag               2         40
+
+15 rows selected.
+
+
+SELECT DEPARTMENT,SALARY from staff group by experience order by name;
+SELECT DEPARTMENT,SALARY from staff group by experience order by name
+       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression
+
+SELECT name,department,salary from staff where experience>2 order by id;
+
+NAME            DEPART     SALARY
+--------------- ------ ----------
+sandy           cse         78000
+raji            csse        80000
+fariha          cse         70000
+vyshu           cse         75000
+sam             cse         80000
+
+delete from staff where department='eee' and experience<3;
+
+5 rows deleted.
+
+SQL> SELECT * from staff;
+
+        ID NAME            DEPART     SALARY CITY       EXPERIENCE        AGE
+---------- --------------- ------ ---------- ---------- ---------- ----------
+        15 keer            cse         95000 tirupathi           2         40
+        16 sandy           cse         78000 tirupathi           3         45
+        17 raji            csse        80000 guntur              3         55
+        18 chandu          csse        90000 guntur              2         44
+        19 fariha          cse         70000 guntur              3         43
+        21 jayitha         ece         73000 guntur              2         35
+        26 vyshu           cse         75000 vizag               8         55
+        27 sai             csse        78000 vizag               2         40
+        28 sam             cse         80000 vizag               3         30
+        29 varun           cse         85000 vizag               2         40
+
+ update staff set experience=3 where department='csse';
+
+3 rows updated.
+
+SQL> SELECT * from staff;
+
+        ID NAME            DEPART     SALARY CITY       EXPERIENCE        AGE
+---------- --------------- ------ ---------- ---------- ---------- ----------
+        15 keer            cse         95000 tirupathi           2         40
+        16 sandy           cse         78000 tirupathi           3         45
+        17 raji            csse        80000 guntur              3         55
+        18 chandu          csse        90000 guntur              3         44
+        19 fariha          cse         70000 guntur              3         43
+        21 jayitha         ece         73000 guntur              2         35
+        26 vyshu           cse         75000 vizag               8         55
+        27 sai             csse        78000 vizag               3         40
+        28 sam             cse         80000 vizag               3         30
+        29 varun           cse         85000 vizag               2         40
+
+update staff set city='tirupathi',experience=3 where department='csse' and experience=3;
+
+3 rows updated.
+
+SQL> SELECT * from staff;
+
+        ID NAME            DEPART     SALARY CITY       EXPERIENCE        AGE
+---------- --------------- ------ ---------- ---------- ---------- ----------
+        15 keer            cse         95000 tirupathi           3         40
+        16 sandy           cse         78000 tirupathi           3         45
+        17 raji            csse        80000 tirupathi           3         55
+        18 chandu          csse        90000 tirupathi           3         44
+        19 fariha          cse         70000 tirupathi           3         43
+        21 jayitha         ece         73000 tirupathi           3         35
+        26 vyshu           cse         75000 tirupathi           3         55
+        27 sai             csse        78000 tirupathi           3         40
+        28 sam             cse         80000 tirupathi           3         30
+        29 varun           cse         85000 tirupathi           3         40
+
+
+ alter table staff add gender varchar(6);
+
+Table altered.
+
+SQL> SELECT * from staff;
+
+        ID NAME            DEPART     SALARY CITY       EXPERIENCE        AGE
+---------- --------------- ------ ---------- ---------- ---------- ----------
+GENDER
+------
+        15 keer            cse         95000 tirupathi           3         40
+
+
+        16 sandy           cse         78000 tirupathi           3         45
+
+
+        17 raji            csse        80000 tirupathi           3         55
+
+
+
+        ID NAME            DEPART     SALARY CITY       EXPERIENCE        AGE
+---------- --------------- ------ ---------- ---------- ---------- ----------
+GENDER
+------
+        18 chandu          csse        90000 tirupathi           3         44
+
+
+        19 fariha          cse         70000 tirupathi           3         43
+
+
+        21 jayitha         ece         73000 tirupathi           3         35
+
+
+
+        ID NAME            DEPART     SALARY CITY       EXPERIENCE        AGE
+---------- --------------- ------ ---------- ---------- ---------- ----------
+GENDER
+------
+        26 vyshu           cse         75000 tirupathi           3         55
+
+
+        27 sai             csse        78000 tirupathi           3         40
+
+
+        28 sam             cse         80000 tirupathi           3         30
+
+
+
+        ID NAME            DEPART     SALARY CITY       EXPERIENCE        AGE
+---------- --------------- ------ ---------- ---------- ---------- ----------
+GENDER
+------
+        29 varun           cse         85000 tirupathi           3         40
+
+
+alter table staff drop column salary ;
+
+Table altered.
+
+SQL> SELECT * from staff;
+
+        ID NAME            DEPART CITY       EXPERIENCE        AGE GENDER
+---------- --------------- ------ ---------- ---------- ---------- ------
+        15 keer            cse    tirupathi           3         40
+        16 sandy           cse    tirupathi           3         45
+        17 raji            csse   tirupathi           3         55
+        18 chandu          csse   tirupathi           3         44
+        19 fariha          cse    tirupathi           3         43
+        21 jayitha         ece    tirupathi           3         35
+        26 vyshu           cse    tirupathi           3         55
+        27 sai             csse   tirupathi           3         40
+        28 sam             cse    tirupathi           3         30
+        29 varun           cse    tirupathi           3         40

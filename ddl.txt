@@ -1,0 +1,334 @@
+1.creating a student table
+
+create table student(id int,name varchar(10),department varchar(5),city char(18),age int,year int,primary key(id));
+
+Table created.
+
+SQL> select * from student;
+
+no rows selected
+
+2.inserting the values into student table
+
+SQL> insert into student values(12,'keer','cse','tpt',13,2);
+
+1 row created.
+
+SQL> insert into student values(13,'sandy','ece','pdrl',14,2);
+
+1 row created.
+
+SQL> insert into student values(14,'bala','cse','tpt',13,2);
+
+1 row created.
+
+SQL> insert into student values(15,'satwi','csse','pdrl',15,3);
+
+1 row created.
+
+SQL> insert into student values(16,'vyshu','eee','vzg',14,3);
+
+1 row created.
+
+SQL> insert into student values(17,'chaitu','ece','vzg',14,3);
+
+1 row created.
+
+SQL> insert into student values(18,'dippa','csse','pdrl',15,3);
+
+
+SQL> insert into student values(19,'pavi','cse','nrt',13,2);
+
+1 row created.
+
+SQL> insert into student values(20,'harika','cse','nrt',15,2);
+
+1 row created
+insert into student values(21,'karthik','cse','tpt',14,2);
+
+1 row created.
+
+3.displaying the name in student table.
+
+SQL> select * from student;
+
+        ID NAME       DEPAR CITY                      AGE       YEAR
+---------- ---------- ----- ------------------ ---------- ----------
+        12 keer       cse   tpt                        13          2
+        13 sandy      ece   pdrl                       14          2
+        14 bala       cse   tpt                        13          2
+        15 satwi      csse  pdrl                       15          3
+        16 vyshu      eee   vzg                        14          3
+        17 chaitu     ece   vzg                        14          3
+        18 dippa      csse  pdrl                       15          3
+        19 pavi       cse   nrt                        13          2
+        20 harika     cse   nrt                        15          2
+        21 karthik    cse   tpt                        14          2
+
+4.altering the table i.e., adding gender column to student table.
+
+alter table student add gender varchar(10);
+
+Table altered.
+
+
+SQL> select * from student;
+
+        ID NAME       DEPAR CITY                      AGE       YEAR GENDER
+---------- ---------- ----- ------------------ ---------- ---------- ----------
+        12 keer       cse   tpt                        13          2
+        13 sandy      ece   pdrl                       14          2
+        14 bala       cse   tpt                        13          2
+        15 satwi      csse  pdrl                       15          3
+        16 vyshu      eee   vzg                        14          3
+        17 chaitu     ece   vzg                        14          3
+        18 dippa      csse  pdrl                       15          3
+        19 pavi       cse   nrt                        13          2
+        20 harika     cse   nrt                        15          2
+        21 karthik    cse   tpt                        14          2
+
+
+5.altering the table by dropping year column from student table. 
+
+alter table student drop column year;
+
+Table altered.
+
+SQL> select * from student;
+
+        ID NAME       DEPAR CITY                      AGE GENDER
+---------- ---------- ----- ------------------ ---------- ----------
+        12 keer       cse   tpt                        13
+        13 sandy      ece   pdrl                       14
+        14 bala       cse   tpt                        13
+        15 satwi      csse  pdrl                       15
+        16 vyshu      eee   vzg                        14
+        17 chaitu     ece   vzg                        14
+        18 dippa      csse  pdrl                       15
+        19 pavi       cse   nrt                        13
+        20 harika     cse   nrt                        15
+        21 karthik    cse   tpt                        14
+
+10 rows selected.
+
+6.altering the table by renaming city column to place.
+
+alter table student rename column city to place;
+
+Table altered.
+
+SQL> select * from student;
+
+        ID NAME       DEPAR PLACE                     AGE GENDER
+---------- ---------- ----- ------------------ ---------- ----------
+        12 keer       cse   tpt                        13
+        13 sandy      ece   pdrl                       14
+        14 bala       cse   tpt                        13
+        15 satwi      csse  pdrl                       15
+        16 vyshu      eee   vzg                        14
+        17 chaitu     ece   vzg                        14
+        18 dippa      csse  pdrl                       15
+        19 pavi       cse   nrt                        13
+        20 harika     cse   nrt                        15
+        21 karthik    cse   tpt                        14
+
+10 rows selected.
+
+7.altering the table by dropping place column from student table.
+
+ alter table student drop column place;
+
+Table altered.
+
+SQL> select * from student;
+
+        ID NAME       DEPAR        AGE GENDER
+---------- ---------- ----- ---------- ----------
+        12 keer       cse           13
+        13 sandy      ece           14
+        14 bala       cse           13
+        15 satwi      csse          15
+        16 vyshu      eee           14
+        17 chaitu     ece           14
+        18 dippa      csse          15
+        19 pavi       cse           13
+        20 harika     cse           15
+        21 karthik    cse           14
+
+10 rows selected.
+
+8.altering the student table by adding pname column to table.
+
+alter table student add pname varchar(10);
+
+Table altered.
+
+SQL> select * from student;
+
+        ID NAME       DEPAR        AGE GENDER     PNAME
+---------- ---------- ----- ---------- ---------- ----------
+        12 keer       cse           13
+        13 sandy      ece           14
+        14 bala       cse           13
+        15 satwi      csse          15
+        16 vyshu      eee           14
+        17 chaitu     ece           14
+        18 dippa      csse          15
+        19 pavi       cse           13
+        20 harika     cse           15
+        21 karthik    cse           14
+
+10 rows selected.
+
+9.altering the student table by dropping age column from table.
+
+ alter table student drop column age;
+
+Table altered.
+
+SQL> select * from student;
+
+        ID NAME       DEPAR GENDER     PNAME
+---------- ---------- ----- ---------- ----------
+        12 keer       cse
+        13 sandy      ece
+        14 bala       cse
+        15 satwi      csse
+        16 vyshu      eee
+        17 chaitu     ece
+        18 dippa      csse
+        19 pavi       cse
+        20 harika     cse
+        21 karthik    cse
+
+10 rows selected.
+
+10.altering the student table by dropping gender column to student table.
+
+alter table student drop column gender;
+
+Table altered.
+
+SQL> select * from student;
+
+        ID NAME       DEPAR PNAME
+---------- ---------- ----- ----------
+        12 keer       cse
+        13 sandy      ece
+        14 bala       cse
+        15 satwi      csse
+        16 vyshu      eee
+        17 chaitu     ece
+        18 dippa      csse
+        19 pavi       cse
+        20 harika     cse
+        21 karthik    cse
+
+10 rows selected.
+
+11.altering the student table by adding gender column to student table.
+
+alter table student add gender varchar(10);
+
+Table altered.
+SQL> select * from student;
+
+        ID NAME       DEPAR GENDER     PNAME
+---------- ---------- ----- ---------- ----------
+        12 keer       cse
+        13 sandy      ece
+        14 bala       cse
+        15 satwi      csse
+        16 vyshu      eee
+        17 chaitu     ece
+        18 dippa      csse
+        19 pavi       cse
+        20 harika     cse
+        21 karthik    cse
+
+12.altering the student table by dropping gender column and pname column to table.
+
+alter table student drop(gender,pname);
+table altered
+select * from student;
+
+        ID NAME       DEPAR     GENDER     PNAME
+---------- ---------- -----    ---------  --------
+        12 keer       cse
+        13 sandy      ece
+        14 bala       cse
+        15 satwi      csse
+        16 vyshu      eee
+        17 chaitu     ece
+        18 dippa      csse
+        19 pavi       cse
+        20 harika     cse
+        21 karthik    cse
+
+13.renaming the student table to std.
+
+alter table student rename to std;
+
+table altered;
+
+14.truncating the std table.
+
+truncate table student;
+
+Table truncated.
+
+15.creating the std1 table.
+
+create table std1(name varchar(6), id int, age int,dob int);
+
+Table created.
+
+16.inserting the values into std1 table.
+
+ insert into std1 values('keer',19,18,26);
+
+1 row created.
+
+SQL> insert into std1 values('sandy',25,19,23);
+
+1 row created.
+
+insert into std1 values('bala',11,12,30);
+
+1 row created.
+
+
+ select * from std1;
+
+NAME           ID        AGE        DOB PLA
+------ ---------- ---------- ---------- ---
+keer           19         18         26
+sandy          25         19         23
+bala           11         12         30
+
+17.altering the std1 table by dropping column place.
+
+alter table std1 drop column place;
+
+Table altered.
+
+SQL> select * from std1;
+
+NAME           ID        AGE        DOB
+------ ---------- ---------- ----------
+keer           19         18         26
+sandy          25         19         23
+bala           11         12         30
+
+18.truncating the std1 table
+
+truncate table std1;
+
+Table truncated.
+
+SQL> select * from std1;
+
+no rows selected
+
+
+
